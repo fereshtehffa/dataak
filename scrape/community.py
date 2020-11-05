@@ -2,6 +2,7 @@ from logger import Logger
 from .request import send_request
 import re
 from db.models import Community
+from django.core.exceptions import MultipleObjectsReturned
 
 logger = Logger.__call__().get_logger()
 
@@ -28,7 +29,7 @@ def create_community(cookie, url):
         url_of_community = re.findall(f"<a href=\"(.*)\">{com}</a>", text)[0]
         try:
             new_community, status = Community.objects.get_or_create(title=com, url=url_of_community)
-        except:
+        except MultipleObjectsReturned:
             logger.error(f"There is more than one community with {com} title")
             # This exception should be handel due to business logic
         logger.info(f"community is {new_community.title} ---> and the url is: {new_community.url}")
@@ -40,7 +41,7 @@ def create_community(cookie, url):
                 url_of_sub = re.findall(f"<a href=\"([^<]*)\" title=\"\">{sub}</a>", sub_text)[0]
                 try:
                     new, status = Community.objects.get_or_create(title=sub, parent=new_community, url=url_of_sub)
-                except:
+                except MultipleObjectsReturned:
                     logger.error(f"There is more than one sub community with {sub} title")
 
                 logger.info(f"community is : {new_community.title} and the sub community is :{new.title} ----> the parent of sub community is : {new.parent.title}, and url is : {new.url}")
