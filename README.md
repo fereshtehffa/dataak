@@ -1,6 +1,7 @@
 This is a simple scrapper to gather data from `https://forum.dataak.com/`.
 
 This scrapper uses `django-orm` to connect to the database.
+
 The default database engine is mysql, so it can be change in settings.py.
 note that the security code should be considered in settings.py.
 # Default database information
