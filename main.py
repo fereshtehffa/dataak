@@ -19,5 +19,5 @@ the order of functions is important!
 #TODO All functions needs exception handeling
 
 print(create_community(cookie, "https://forum.dataak.com/index.php"))
-print(create_thread("https://forum.dataak.com/", cookie))
-print(create_comment("https://forum.dataak.com/", cookie))
+# print(create_thread("https://forum.dataak.com/", cookie))
+# print(create_comment("https://forum.dataak.com/", cookie))
