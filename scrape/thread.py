@@ -28,4 +28,7 @@ def create_thread(url, cookie):
                 logger.error(f"There is more than one thread with {found[1]} title")
                 # This exception should be handel due to business logic
             logger.info(f"new thread created. the title is: {new_thread.title} and url is : {new_thread.url}")
+        else:
+            logger.info(f"there is no threads for this {com.title} title")
+
     return "new threads created!"

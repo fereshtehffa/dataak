@@ -3,14 +3,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# DATABASES = {
-#     'default': {
-#         # Database driver
-#         'ENGINE': 'django.db.backends.mysql',
-#         # Replace below with Database Name if using other database engines
-#         'NAME': "dataakdb"
-#     }
-# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -29,7 +22,14 @@ INSTALLED_APPS = (
 To connect to an existing postgres database, first:
 pip install django psycopg2
 then overwrite the settings above with:
-
+DATABASES = {
+    'default': {
+        # Database driver
+        'ENGINE': 'your engine',
+        # Replace below with Database Name if using other database engines
+        'NAME': "dataak"
+    }
+}
 """
 
 # SECURITY WARNING: Modify this secret key if using in production!
