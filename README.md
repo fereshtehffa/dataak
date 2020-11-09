@@ -1,4 +1,3 @@
-This is a simple scrapper to gather data from `https://forum.dataak.com/`.
 
 This scrapper uses `django-orm` to connect to the database.
 
